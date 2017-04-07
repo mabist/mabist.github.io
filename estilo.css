@@ -46,6 +46,17 @@
       background-color: #A52A2A;
       padding: 12px;
     }
+    
+    a:link, a:visited {
+    background-color: #A52A2A;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    }
+    
+    a:hover, a:active {
+    background-color: #B22222;
+    }
    
    
     /*footer {
