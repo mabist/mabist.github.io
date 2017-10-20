@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  
+  <title> Calculadora </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+  
+  var mostrandoResultado = true;
+  
+  function addNum(N) {
+    if(
+      document.getElementById('visor').value == '0'
+      ||
+      document.getElementById('visor').value == 'ERRO'
+      ||
+      document.getElementById('visor').value == 'undefined'
+      ||
+      document.getElementById('visor').value == 'Infinity'
+      ||
+      document.getElementById('visor').value == '-Infinity'
+      ||
+      document.getElementById('visor').value == 'NaN'
+      ||
+      mostrandoResultado
+    ){
+      mostrandoResultado = false;
+      if(!(N=='+' || N=='-' || N=='*' || N=='/' || N=='=')){
+        document.getElementById('visor').value = '';
+      }
+    }
+    document.getElementById('visor').value += N;
+  }
+  
+  function limpar() {
+    document.getElementById('visor').value = '';
+  }
+  
+  function calcular() {
+    document.getElementById('visor').value += '=';
+    var acabou = false
+    while(!acabou){
+      var valorEsquerda = consomeNumero()
+      var operacao = consomeUm()
+      if(operacao=='=' || typeof(operacao)==='undefined'){
+        document.getElementById('visor').value = valorEsquerda;
+        acabou = true
+      }else{
+        var valorDireita = consomeNumero()
+        var resultado = null
+        if(operacao=='+'){ resultado = valorEsquerda + valorDireita; } else
+        if(operacao=='-'){ resultado = valorEsquerda - valorDireita; } else
+        if(operacao=='*'){ resultado = valorEsquerda * valorDireita; } else
+        if(operacao=='/'){ resultado = valorEsquerda / valorDireita; } else
+        {
+          document.getElementById('visor').value = 'ERRO';
+          return;
+        }
+        document.getElementById('visor').value = String(resultado) + document.getElementById('visor').value
+      }
+    }
+    mostrandoResultado = true;
+  }
+  
+  function consomeUm(){
+    var simbolo = document.getElementById('visor').value[0];
+    document.getElementById('visor').value = document.getElementById('visor').value.substring(1);
+    return simbolo;
+  }
+  
+  function consomeNumero(){
+    var visor = document.getElementById('visor').value
+    var i = 0;
+    var resultado = null
+    var temVirgula = false
+    var numero = ''
+    while(i < visor.length){
+      if(visor[i]=='+' || visor[i]=='-' || visor[i]=='*' || visor[i]=='/' || visor[i]=='='){
+        if(temVirgula){
+          resultado = parseFloat(numero)
+        }else{
+          resultado = parseInt(numero)
+        }
+        visor = ''
+      }else{
+        if(visor[i]=='.' || visor[i]==','){
+          visor[i]='.'
+          temVirgula = true
+        }
+        numero+=visor[i];
+      }
+      i+=1
+    }
+    document.getElementById('visor').value = document.getElementById('visor').value.substring(i-1);
+    return resultado
+  }
+  
+  
+  </script>
+  
+  <style>
+  
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
+  .margin {
+    margin-bottom: 45px;
+    color: #FFA6BA;
+  }
+  
+  .title {
+    margin-bottom: 45px;
+  }
+  
+  .Subtitle-1 {
+    color: #B03060;
+  }
+  
+  .bg-1 {
+    background-color: #5F9EA0;
+    color: #ffffff;
+    width: 92%;
+    border: 25px solid #494949;
+    padding: 25px;
+    margin: 25px;
+  }
+  
+  .bg-5 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+      }
+  
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  
+  .navbar-nav  li a:hover {
+    color: black !important;
+  }
+  
+  .table {
+    color: white;
+  }
+  
+  .btn-md:hover {
+    background-color: #494949;
+    border-color: #6C6C6C;
+    color: #FFFFFF;
+  }
+  
+  .btn-md {
+    background-color: #2F2F2F;
+    width: 15%;
+    height: 8%;
+    border-color: #6C6C6C;
+    color: #FFFFFF;
+  }
+  
+  .op {
+    background-color: #5D0075;
+    border-color: #6C6C6C;
+  }
+  
+  .op:hover {
+    background-color: #8A00AC;
+    border-color: #6C6C6C;
+  }
+  
+  .resul {
+    background-color: #FF0037;
+    border-color: #6C6C6C;
+  }
+  
+  .resul:hover {
+    background-color: #FF2D5B;
+    border-color: #6C6C6C;
+  }
+  
+  </style>
+  
+</head>
+<body>
+  
+  <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Mabi</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">SOBRE MIM</a></li>
+        <li><a href="#">PORTIFÓLIO</a></li>
+        <li><a href="#">HABILIDADES</a></li>
+        <li><a href="calculadora.html">CALCULADORA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+  <form class="form-inline" name="calc">
+    <div class="container-fluid bg-1">
+      <div class="row">
+        <div class="col-xs-12">
+          
+          <input type="text" style="font-weight: 900; text-align: center;" id="visor" class="form-control input-lg" value="0" onkeypress="pressKey(event)" />
+          <br/>
+          <br/>
+          <input type="button" value="7" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="8" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="9" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="*" onclick="addNum(value);" class="btn btn-md op"/>
+          <br/>
+          <input type="button" value="4" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="5" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="6" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="/" onclick="addNum(value);" class="btn btn-md op"/>
+          <br/>
+          <input type="button" value="1" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="2" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="3" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="-" onclick="addNum(value);" class="btn btn-md op"/>
+          <br/>
+          <input type="button" value="C" onclick="limpar();" class="btn btn-md op"/>
+          <input type="button" value="0" onclick="addNum(value);" class="btn btn-md"/>
+          <input type="button" value="=" onclick="calcular();" class="btn btn-md resul" id="resultado"/>
+          <input type="button" value="+" onclick="addNum(value);" class="btn btn-md op"/>
+          <br/>
+          
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <footer class="container-fluid bg-5 text-center">
+  <p>Copyright  © The Legend of Mabi </p> 
+</footer>
+
+</body>
+</html>
