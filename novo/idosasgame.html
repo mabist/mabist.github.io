@@ -13,12 +13,16 @@
 	<script>
 		var player = 'img/bluestar.png';
   		function mudarImagem(img){
-  			 img.src = player; 
-   			if (player == 'img/bluestar.png') {
-   				 player = 'img/moon2.png';
-  			 } else {
-    				player = 'img/bluestar.png';
-   			 }
+  			if (img.src == 'img/branco.png') {
+   				if (player == 'img/bluestar.png') {
+   				 	player = 'img/moon2.png';
+  			 	} else {
+    					player = 'img/bluestar.png';
+   			 	}
+			} else {
+				player = img.src;
+			}
+			img.src = player;
    		}
 	
 	</script>
