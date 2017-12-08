@@ -12,13 +12,15 @@
 		var player = 'img/x9.png';
 		var elemento = document.getElementById(id).src
 		function mudarImagem(img){
+			alert ('elemento')
 			img.src= player;
-			if (player == 'img/x9.png') {
-				player = 'img/moon.png';
-			} else {
-				player = 'img/x9.png';
+			if (elemento == 'img/cinza.png') {
+				if (player == 'img/x9.png') {
+					player = 'img/moon.png';
+			}	 else {
+					player = 'img/x9.png';
 				}
-			
+			}
 		}
 	</script>
 </head>
