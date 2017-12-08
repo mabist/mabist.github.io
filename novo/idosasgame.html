@@ -10,11 +10,9 @@
 	</style>
 	<script>
 		var player = 'img/x9.png';
-		var elemento = document.getElementById(id).src
 		function mudarImagem(img){
-			alert ('elemento.src')
-			img.src= player;
-			if (elemento == 'img/cinza.png') {
+			if (img.src == 'img/cinza.png') {
+				img.src= player;
 				if (player == 'img/x9.png') {
 					player = 'img/moon.png';
 			}	 else {
