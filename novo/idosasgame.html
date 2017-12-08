@@ -12,8 +12,9 @@
 	</style>
 	<script>
 		var player = 'img/bluestar.png';
+		var fundo = 'img/branco.png';
 		function mudarImagem(img){
-			if (img.src != 'img/branco.png') {
+			if (img.src == fundo) {
 				img.src = player;	
 				if (player == 'img/bluestar.png') {
 					player = 'img/moon2.png';
