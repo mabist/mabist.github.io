@@ -12,17 +12,18 @@
 	</style>
 	<script>
 		var player = 'img/bluestar.png';
+		alert ('oi')
   		function mudarImagem(img){
-  			if (img.src == 'img/branco.png') {
+  			if ("img.src" == 'img/branco.png') {
    				if (player == 'img/bluestar.png') {
    				 	player = 'img/moon2.png';
   			 	} else {
     					player = 'img/bluestar.png';
    			 	}
 			} else {
-				player = img.src;
+				player = "img.src";
 			}
-			img.src = player;
+			"img.src" = player;
    		}
 	
 	</script>
