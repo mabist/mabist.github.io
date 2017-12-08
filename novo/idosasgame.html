@@ -11,39 +11,37 @@
 		
 	</style>
 	<script>
-
-		var player = 'moon2.png';
-  	   	 function mudarImagem(img){
-    			if (img.src == 'img/branco.png'){
-      				if (player == 'img/moon2.png') {
-       					 player = 'img/bluestar.png';
-      				} else {
-        				player = 'img/moon2.png';
-      					}
-  			 } else {
-     				 player = img.src;
+		var player = 'img/bluestar.png';
+  		function mudarImagem(img){
+   			if (img.src == 'img/branco.png') {
+   				if (player == 'img/bluestar.png') {
+   				 	player = 'img/moon2.png';
+   				} else {
+    					player = 'img/bluestar.png';
    				 }
-   			 	img.src = player;
- 			 }
+			} else {
+				player = img.src;
+   		}
+	
 	</script>
 		
 </head>
 <body>
 	<table>
 		<tr>
-			<td><img src='img/branco.png' id="q1" width="150" height="150" onclick="mudarImagem(this)"/></td> 
-			<td><img src='img/branco.png' id="q2" width="150" height="150" onclick="mudarImagem(this)"/></td> 
-			<td><img src='img/branco.png' id="q3" width="150" height="150" onclick="mudarImagem(this)"/></td> 
+			<td><img src='img/branco.png' id="q1" width="150" height="150" onclick="mudarImagem(this);"/></td> 
+			<td><img src='img/branco.png' id="q2" width="150" height="150" onclick="mudarImagem(this);"/></td> 
+			<td><img src='img/branco.png' id="q3" width="150" height="150" onclick="mudarImagem(this);"/></td> 
 		</tr>
 		<tr>
-			<td><img src='img/branco.png' id="q4" width="150" height="150" onclick="mudarImagem(this)"/></td> 
-			<td><img src='img/branco.png' id="q5" width="150" height="150" onclick="mudarImagem(this)"/></td> 
-			<td><img src='img/branco.png' id="q6" width="150" height="150" onclick="mudarImagem(this)"/></td> 
+			<td><img src='img/branco.png' id="q4" width="150" height="150" onclick="mudarImagem(this);"/></td> 
+			<td><img src='img/branco.png' id="q5" width="150" height="150" onclick="mudarImagem(this);"/></td> 
+			<td><img src='img/branco.png' id="q6" width="150" height="150" onclick="mudarImagem(this);"/></td> 
 		</tr>
 		<tr>
-			<td><img src='img/branco.png' id="q7" width="150" height="150" onclick="mudarImagem(this)"/></td> 
-			<td><img src='img/branco.png' id="q8" width="150" height="150" onclick="mudarImagem(this)"/></td> 
-			<td><img src='img/branco.png' id="q9" width="150" height="150" onclick="mudarImagem(this)"/></td> 
+			<td><img src='img/branco.png' id="q7" width="150" height="150" onclick="mudarImagem(this);"/></td> 
+			<td><img src='img/branco.png' id="q8" width="150" height="150" onclick="mudarImagem(this);"/></td> 
+			<td><img src='img/branco.png' id="q9" width="150" height="150" onclick="mudarImagem(this);"/></td> 
 		</tr>
 	</table>
 		
