@@ -9,14 +9,15 @@
 		}
 	</style>
 	<script>
-		var player = "img/x9.png";
+		var player = "x9.png";
 		var elemento = document.getElementById(id).src
 		function mudarImagem(img){
 			img.src= player;
-			if (player == "img/x9.png") {
-				player = "img/moon.png";
-			} else {
-				player = "img/x9.png";
+			if (elemento == "cinza.png") {
+				if (player == "x9.png") {
+					player = "moon.png";
+			} 	else {
+					player = "x9.png";
 				}
 			}
 		}
