@@ -14,21 +14,19 @@
 
 		var player = 'moon2.png';
   
- 		 function mudaquadrado(img){
+  function mudaquadrado(img){
     
-    			if (img.src == 'img/branco.png'){
-      				if (player == 'img/moon2.png') {
-        				player = 'img/bluestar.png';
-      				} else {
-        				player = 'img/moon2.png';
-      				}
-   			 } else {
-     				 player = img.src;
-    			}
-   			 img.src = player;
- 		 }
-	}				
-			
+    if (img.src == 'img/branco.png'){
+      if (player == 'img/moon2.png') {
+        player = 'img/bluestar.png';
+      } else {
+        player = 'img/moon2.png';
+      }
+    } else {
+      player = img.src;
+    }
+    img.src = player;
+  }
 	</script>
 		
 </head>
