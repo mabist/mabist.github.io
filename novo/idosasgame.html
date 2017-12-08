@@ -20,21 +20,61 @@
 		
 	</style>
 	<script>
-		var player = "img/moon2.png"
-  
-  function mudarImagem(img){
+		var player = 'img/bluestar.png';
+  		function mudarImagem(img){
+  			if (img.src == 'img/branco.png') {
+   				if (player == 'img/bluestar.png') {
+   				 	player = 'img/moon2.png';
+  			 	} else {
+    					player = 'img/bluestar.png';
+   			 	}
+			} else {
+				player = img.src;
+			}
+			img.src = player;
+			vencedor();
+   		}
+		
+		function vencedor(){
+    q11 = document.getElementById('q11')
+    q12 = document.getElementById('q12')
+    q13 = document.getElementById('q13')
+    q21 = document.getElementById('q21')
+    q22 = document.getElementById('q22')
+    q23 = document.getElementById('q23')
+    q31 = document.getElementById('q31')
+    q32 = document.getElementById('q32')
+    q33 = document.getElementById('q33')
     
-    if (img.src == "img/branco.png"){
-      if (player == "img/moon2.png") {
-        player = "img/bluestar.png";
+    if ((q11.src == q12.src) && (q11.src == q13.src) && (q11.src != "img/branco.png")
+    ||
+    (q11.src == q21.src) && (q11.src == q31.src) && (q11.src != "img/branco.png")
+    ||
+    (q11.src == q22.src) && (q11.src == q33.src) && (q11.src != "img/branco.png")
+    ||
+    (q21.src == q22.src) && (q21.src == q23.src) && (q21.src != "img/branco.png")
+    ||
+    (q31.src == q32.src) && (q31.src == q33.src) && (q31.src != "img/branco.png")
+    ||
+    (q31.src == q22.src) && (q31.src == q13.src) && (q31.src != "img/branco.png")
+    ||
+    (q12.src == q22.src) && (q12.src == q32.src) && (q12.src != "img/branco.png")
+    ||
+    (q13.src == q23.src) &&  (q13.src == q33.src) && (q13.src != "img/branco.png")){
+      
+      if ((q11.src == "img/bluestar.png")
+      ||
+      (q22.src == "img/bluestar.png")
+      ||
+      (q33.scr == "img/bluestar.png")){
+        alert('Jogador 2 é o vencedor!')
       } else {
-        player = "img/moon2.png";
+        alert('Jogador 1 é o vencedor!')
       }
-    } else {
-      player = img.src;
     }
-    img.src = player;
   }
+  
+	
 		
 		
 	</script>
@@ -43,19 +83,19 @@
 <body>
 	<table>
 		<tr>
-			<td><img src="img/branco.png" id="q1"  onclick="mudarImagem(this);"/></td> 
-			<td><img src="img/branco.png" id="q2"  onclick="mudarImagem(this);"/></td> 
-			<td><img src="img/branco.png" id="q3"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q11"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q12"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q13"  onclick="mudarImagem(this);"/></td> 
 		</tr>
 		<tr>
-			<td><img src="img/branco.png" id="q4"  onclick="mudarImagem(this);"/></td> 
-			<td><img src="img/branco.png" id="q5"  onclick="mudarImagem(this);"/></td> 
-			<td><img src="img/branco.png" id="q6"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q21"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q22"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q23"  onclick="mudarImagem(this);"/></td> 
 		</tr>
 		<tr>
-			<td><img src="img/branco.png" id="q7"  onclick="mudarImagem(this);"/></td> 
-			<td><img src="img/branco.png" id="q8"  onclick="mudarImagem(this);"/></td> 
-			<td><img src="img/branco.png" id="q9"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q31"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q32"  onclick="mudarImagem(this);"/></td> 
+			<td><img src="img/branco.png" id="q33"  onclick="mudarImagem(this);"/></td> 
 		</tr>
 	</table>
 		
